@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import JokeList from '../JokeList';
+import Joke from '../Joke';
 
 it('should render without crashing', () => {
-  render(JokeList);
+  render(Joke);
 });
 
 it('should render snapshot', () => {
