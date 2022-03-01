@@ -13,11 +13,11 @@ class Joke extends React.Component {
   }
 
   upVote() {
-    this.setState({vote: this.state.vote(id, +1)});
+    this.setState({vote: this.state.vote(this.props.id, +1)});
   }
 
   downVote() {
-    this.setState({vote: this.state.vote(id, -1)});
+    this.setState({vote: this.state.vote(this.props.id, -1)});
   };
 
   render() {
@@ -25,15 +25,15 @@ class Joke extends React.Component {
     return (
       <div className="Joke">
         <div className="Joke-votearea">
-          <button onClick={upVote}>
+          <button onClick={this.upVote}>
             <i className="fas fa-thumbs-up" />
           </button>
 
-          <button onClick={downVote}>
+          <button onClick={this.downVote}>
             <i className="fas fa-thumbs-down" />
           </button>
 
-          {votes}
+          {this.state.votes}
         </div>
 
         <div className="Joke-text">{text}</div>
