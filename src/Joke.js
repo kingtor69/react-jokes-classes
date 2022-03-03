@@ -5,8 +5,7 @@ class Joke extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      vote: 0,
-      votes: 0
+      votes: this.props.votes
     };
 
     this.upVote = this.upVote.bind(this);
@@ -14,11 +13,11 @@ class Joke extends React.Component {
   };
 
   upVote() {
-    this.setState({vote: this.state.vote(this.props.id, +1)});
+    this.setState({vote: (this.props.id), votes: this.state.votes +1});
   };
 
   downVote() {
-    this.setState({vote: this.state.vote(this.props.id, -1)});
+    this.setState({ vote: (this.props.id), votes: this.state.votes -1 });
   };
 
   render() {
