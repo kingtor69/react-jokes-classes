@@ -1,5 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should match starter code snapshot 1`] = `<DocumentFragment />`;
-
-exports[`should render snapshot 1`] = `<DocumentFragment />`;
