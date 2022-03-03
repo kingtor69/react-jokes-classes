@@ -10,11 +10,11 @@ class Joke extends React.Component {
     }
     this.upVote = this.upVote.bind(this);
     this.downVote = this.downVote.bind(this);
-  }
+  };
 
   upVote() {
     this.setState({vote: this.state.vote(this.props.id, +1)});
-  }
+  };
 
   downVote() {
     this.setState({vote: this.state.vote(this.props.id, -1)});

@@ -16,7 +16,6 @@ class JokeList extends React.Component {
 
   /* get jokes if there are no jokes */
 
-  
   async getJokes() {
     let { jokes } = this.state;
     const { numJokesToGet } = this.props;
@@ -42,6 +41,14 @@ class JokeList extends React.Component {
     }
 
     if (jokes.length === 0) this.getJokes();
+  };
+
+  componentDidMount() {
+    this.getJokes();
+  };
+  
+  componentDidUpdate(numJokesToGet, jokes) {
+    this.getJokes();
   };
 
   /* empty joke list and then call getJokes */
