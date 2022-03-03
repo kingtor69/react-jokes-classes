@@ -9,6 +9,7 @@ class JokeList extends React.Component {
     this.state = {
       jokes: []
     };
+    this.numJokesToGet = this.props.numJokesToGet || 10
     this.getJokes = this.getJokes.bind(this);
     this.generateNewJokes = this.generateNewJokes.bind(this);
     this.vote = this.vote.bind(this);
@@ -18,11 +19,11 @@ class JokeList extends React.Component {
 
   async getJokes() {
     let { jokes } = this.state;
-    const { numJokesToGet } = this.props;
+    // const { numJokesToGet } = this.props;
     let j = [...jokes];
     let seenJokes = new Set();
     try {
-      while (j.length < numJokesToGet) {
+      while (j.length < this.numJokesToGet) {
         let res = await axios.get("https://icanhazdadjoke.com", {
           headers: { Accept: "application/json" }
         });
@@ -68,7 +69,6 @@ class JokeList extends React.Component {
   /* render: either loading spinner or list of sorted jokes. */
 
   render() {
-    const { numJokesToGet } = this.props;
     const { jokes } = this.state;
 
     if (jokes.length) {
