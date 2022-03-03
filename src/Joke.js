@@ -4,21 +4,22 @@ import "./Joke.css";
 class Joke extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      votes: this.props.votes
-    };
-
+    
     this.upVote = this.upVote.bind(this);
     this.downVote = this.downVote.bind(this);
   };
 
-  upVote() {
-    this.setState({vote: (this.props.id), votes: this.state.votes +1});
-  };
+  upVote() { this.props.vote(this.props.id, +1) };
+  downVote() { this.props.vote(this.props.id, -1) };
 
-  downVote() {
-    this.setState({ vote: (this.props.id), votes: this.state.votes -1 });
-  };
+
+  // upVote() {
+  //   this.setState({vote: (this.props.id), votes: this.state.votes +1});
+  // };
+
+  // downVote() {
+  //   this.setState({ vote: (this.props.id), votes: this.state.votes -1 });
+  // };
 
   render() {
     return (
@@ -32,7 +33,7 @@ class Joke extends React.Component {
             <i className="fas fa-thumbs-down" />
           </button>
 
-          {this.state.votes}
+          {this.props.votes}
         </div>
 
         <div className="Joke-text">{this.props.text}</div>
